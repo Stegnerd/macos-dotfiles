@@ -19,7 +19,7 @@ require("lazy").setup({
 		colorscheme = {"nightfly"}
 	},
 	checker = {
-		enabled = true -- check for updates on starup
+		enabled = true, -- check for updates on starup
 		notify = false -- but don't warn me
 	},
 	change_detection = {
