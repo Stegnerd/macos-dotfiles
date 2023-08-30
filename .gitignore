@@ -1,0 +1,22 @@
+.avalonia-build-tasks
+.mono
+com.corsair
+configstore
+flutter
+github-copilot
+gtk-2.0
+iterm2
+jgit
+macos-dotfiles
+mgba
+Microsoft\\VisualStudio Services
+Nuget
+ppsspp
+raycast
+realm-cli
+Ryujinx
+spotify-player
+stetic
+xbuild
+starship.toml
+.DS_Store
