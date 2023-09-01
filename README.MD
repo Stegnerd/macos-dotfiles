@@ -2,4 +2,4 @@
 1. NeoVim
 2. tmux
 3. nerd font (Fira Code Nerd Font)
-4. 
+4. lazygit
