@@ -26,10 +26,14 @@ return {
     nvimtree.setup({
       on_attach = my_on_attach,
       view = {
-        width = 60,
+        width = 35,
+	      relativenumber = true
       },
       -- change folder arrow icons
       renderer = {
+	      indent_markers = {
+		      enable = true
+	      },	
         icons = {
           glyphs = {
             folder = {
