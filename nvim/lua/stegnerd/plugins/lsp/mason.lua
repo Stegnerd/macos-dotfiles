@@ -3,8 +3,8 @@ return {
   dependencies = {
     "williamboman/mason-lspconfig.nvim",
     "jayp0521/mason-null-ls.nvim",
- },
- config = function()
+  },
+  config = function()
     -- import mason
     local mason = require("mason")
 
@@ -12,32 +12,33 @@ return {
     local mason_lspconfig = require("mason-lspconfig")
 
     -- import mason-null-ls
-    local  mason_null_ls = require("mason-null-ls")
+    local mason_null_ls = require("mason-null-ls")
 
     -- enable mason and configure icons
     mason.setup({
       ui = {
         icons = {
-            package_installed = "✓",
-            package_pending = "➜",
-            package_uninstalled = "✗"
-        }
-      }
+          package_installed = "✓",
+          package_pending = "➜",
+          package_uninstalled = "✗",
+        },
+      },
     })
 
     mason_lspconfig.setup({
       -- list of servers for mason to install
       -- full list here https://github.com/williamboman/mason-lspconfig.nvim#available-lsp-servers
       ensure_installed = {
-        --"angularls",
+        "angularls",
         -- "csharp_ls", check if we wanna use omnisharp instead
         --"clangd", -- c++
         --"cssls",
         "cssls",
+        -- "eslint",
         "gopls",
         "html",
         "lua_ls",
-        "tsserver"
+        "tsserver",
       },
       -- auto-install configured servers (with lspconfig)
       automatic_installation = true, -- not the same as ensure_installed
@@ -47,18 +48,18 @@ return {
       -- list of formatters & linters for mason to install
       ensure_installed = {
         -- Formatter
+        --"eslint", -- ts/js formatter
         "prettier", -- ts/js formatter
         "stylua", -- lua formatter
         -- Linter
-        "eslint_d",-- ts/js linter
+        "eslint_d", -- ts/js linter
         "golangci-lint",
         --"staticcheck" maybe?
-        "luacheck",
+        --"luacheck",
         -- DAP
       },
       -- auto-install configured servers (with lspconfig)
       automatic_installation = true,
     })
-  end
-
+  end,
 }

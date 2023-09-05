@@ -32,6 +32,7 @@ return {
             return utils.root_has_file({ ".eslintrc.js", ".eslintrc.cjs" }) -- only enable if root has .eslintrc.js or .eslintrc.cjs
           end,
         }),
+        formatting.eslint
       },
       -- configure format on save
       on_attach = function(current_client, bufnr)
@@ -41,11 +42,12 @@ return {
             group = augroup,
             buffer = bufnr,
             callback = function()
+              -- this is what triggers auto save
               vim.lsp.buf.format({
-                filter = function(client)
-                  --  only use null-ls for formatting instead of lsp server
-                  return client.name == "null-ls"
-                end,
+                -- filter = function(client)
+                --   --  only use null-ls for formatting instead of lsp server
+                --   return client.name == "null-ls"
+                -- end,
                 bufnr = bufnr,
               })
             end,

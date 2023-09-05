@@ -75,7 +75,19 @@
     -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
 
     -- configure css server
+    lspconfig["angularls"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+    })
+
+    -- configure css server
     lspconfig["cssls"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+    })
+
+    -- configure eslint server
+    lspconfig["eslint"].setup({
       capabilities = capabilities,
       on_attach = on_attach,
     })
