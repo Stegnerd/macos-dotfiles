@@ -22,9 +22,9 @@ return {
       sources = {
         --  to disable file types use
         --  "formatting.prettier.with({disabled_filetypes: {}})" (see null-ls docs)
-        -- formatting.prettier.with({
-        --   extra_filetypes = { "svelte" },
-        -- }), -- js/ts formatter
+        formatting.prettier.with({
+          extra_filetypes = { "svelte" },
+        }), -- js/ts formatter
         formatting.stylua, -- lua formatter,
         formatting.goimports, -- golang import linter
         diagnostics.eslint_d.with({ -- js/ts linter
@@ -32,7 +32,7 @@ return {
             return utils.root_has_file({ ".eslintrc.js", ".eslintrc.cjs" }) -- only enable if root has .eslintrc.js or .eslintrc.cjs
           end,
         }),
-        formatting.eslint
+        -- formatting.eslint -- toggle for eslint formatter
       },
       -- configure format on save
       on_attach = function(current_client, bufnr)
@@ -44,10 +44,10 @@ return {
             callback = function()
               -- this is what triggers auto save
               vim.lsp.buf.format({
-                -- filter = function(client)
-                --   --  only use null-ls for formatting instead of lsp server
-                --   return client.name == "null-ls"
-                -- end,
+                filter = function(client)
+                  --  only use null-ls for formatting instead of lsp server
+                  return client.name == "null-ls"
+                end,
                 bufnr = bufnr,
               })
             end,

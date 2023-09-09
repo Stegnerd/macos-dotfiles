@@ -87,10 +87,10 @@
     })
 
     -- configure eslint server
-    lspconfig["eslint"].setup({
-      capabilities = capabilities,
-      on_attach = on_attach,
-    })
+    -- lspconfig["eslint"].setup({
+    --   capabilities = capabilities,
+    --   on_attach = on_attach,
+    -- })
 
     -- configure go server
     lspconfig["gopls"].setup({
