@@ -7,13 +7,15 @@ Lualine.config = function()
 
   -- Nord is supported by lualine.nvim
   -- https://github.com/nvim-lualine/lualine.nvim/blob/master/THEMES.md
-  -- if lvim.colorscheme == "nordic" then
-  --   lvim.builtin.lualine.options.theme = "nord"
-  -- elseif lvim.colorscheme == "tokyonight" then
-  --   lvim.builtin.lualine.options.theme = "tokyonight"
-  -- else
-  --   lvim.builtin.lualine.options.theme = "auto"
-  -- end
+  if lvim.colorscheme == "nordic" then
+    lvim.builtin.lualine.options.theme = "nord"
+  elseif lvim.colorscheme == "everforest" then
+    lvim.builtin.lualine.options.theme = "everforest"
+  elseif lvim.colorscheme == "tokyonight" then
+    lvim.builtin.lualine.options.theme = "tokyonight"
+  else
+    lvim.builtin.lualine.options.theme = "auto"
+  end
 end
 
 return Lualine

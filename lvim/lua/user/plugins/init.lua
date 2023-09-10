@@ -3,7 +3,22 @@
 --
 require "user.plugins.lualine"
 
+
 lvim.plugins = {
+  --
+  -- Diagnostics
+  --
+  {
+    "folke/trouble.nvim",
+    dependencies = {
+      "nvim-telescope/telescope.nvim",
+    },
+    config = function()
+      require("user.plugins.trouble").config()
+    end,
+    event = "BufWinEnter",
+    cmd = "TroubleToggle",
+  },
   -- ever forest theme
 {
   "neanias/everforest-nvim",
@@ -17,5 +32,12 @@ lvim.plugins = {
   conditions = function()
     return lvim.colorscheme == "everforest"
   end,
-}
+},
+  --
+  -- Dressing.nvim
+  -- https://github.com/stevearc/dressing.nvim
+  {
+    "stevearc/dressing.nvim",
+    opts = {},
+  },
 }
