@@ -1,13 +1,13 @@
- return {
- -- config options for lsp settings
-  "neovim/nvim-lspconfig", 
-  event = { "BufReadPre", "BufNewFile" }, -- load this when opening a buffer for new or existing
+return {
+  -- config options for lsp settings
+  "neovim/nvim-lspconfig",
+  event = { "BufReadPre", "BufNewFile" },                     -- load this when opening a buffer for new or existing
   dependencies = {
-    "hrsh7th/cmp-nvim-lsp", --  give auto complete for  lsp  
+    "hrsh7th/cmp-nvim-lsp",                                   --  give auto complete for  lsp
     { "antosha417/nvim-lsp-file-operations", config = true }, -- rename files in nvim tree and imports
   },
   config = function()
-     -- import lspconfig plugin
+    -- import lspconfig plugin
     local lspconfig = require("lspconfig")
 
     -- import cmp-nvim-lsp plugin
@@ -16,8 +16,8 @@
     local keymap = vim.keymap -- for conciseness
 
     -- only load these keybinds when this dependency is loaded
-     local opts = { noremap = true, silent = true }
-     local on_attach = function(client, bufnr)
+    local opts = { noremap = true, silent = true }
+    local on_attach = function(client, bufnr)
       opts.buffer = bufnr
 
       -- set keybinds
@@ -86,17 +86,18 @@
       on_attach = on_attach,
     })
 
-    -- configure eslint server
-    -- lspconfig["eslint"].setup({
-    --   capabilities = capabilities,
-    --   on_attach = on_attach,
-    -- })
+    -- configure emmet language server
+    lspconfig["emmet_ls"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+      filetypes = { "html", "css", "sass", "scss", "less", "vue", "typescript" },
+    })
 
     -- configure go server
     lspconfig["gopls"].setup({
       capabilities = capabilities,
       on_attach = on_attach,
-      filetypes = {"go", "gomod", "gowork", "gotmpl" },
+      filetypes = { "go", "gomod", "gowork", "gotmpl" },
     })
 
     -- configure html server
@@ -127,10 +128,22 @@
       },
     })
 
+    lspconfig["rust_analyzer"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+    })
+
     -- configure typescript server with plugin
     lspconfig["tsserver"].setup({
-        capabilities = capabilities,
-        on_attach = on_attach,
+      capabilities = capabilities,
+      on_attach = on_attach,
+    })
+
+    -- configure vue server with plugin
+    lspconfig["volar"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+      filetypes = { "vue" },
     })
   end
 }
