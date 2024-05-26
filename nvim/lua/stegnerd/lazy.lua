@@ -12,7 +12,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 -- ,{import = "stegnerd.plugins.lsp"}
-require("lazy").setup({ { "stegnerd.plugins" } }, {
+require("lazy").setup({ { import = "stegnerd.plugins" }, { import = "stegnerd.plugins.lsp" } }, {
   checker = {
     enabled = true,
     notify = false
