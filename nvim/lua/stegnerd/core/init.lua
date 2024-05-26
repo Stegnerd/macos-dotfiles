@@ -1,2 +1,2 @@
-require("stegnerd.core.keymaps")
 require("stegnerd.core.options")
+require("stegnerd.core.keymaps")
