@@ -22,3 +22,15 @@ keymap.set("n", "<leader>tx", "<cmd>tabclose<CR>", { desc = "Close current tab" 
 keymap.set("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "Go to next tab" })                     --  go to next tab
 keymap.set("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "Go to previous tab" })                 --  go to previous tab
 keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" }) --  move current buffer to new tab
+
+-- terminal management
+keymap.set("n", "<leader>tv", "<cmd>ToggleTerm direction=vertical<cr>", { desc = "Vertical Terminal" })
+keymap.set("n", "<leader>th", "<cmd>ToggleTerm direction=horizontal<cr>", { desc = "Horizontal Terminal" })
+
+keymap.set('t', '<esc>', [[<C-\><C-n>]])
+keymap.set('t', 'jk', [[<C-\><C-n>]])
+keymap.set('t', '<C-h>', [[<Cmd>wincmd h<CR>]])
+keymap.set('t', '<C-j>', [[<Cmd>wincmd j<CR>]])
+keymap.set('t', '<C-k>', [[<Cmd>wincmd k<CR>]])
+keymap.set('t', '<C-l>', [[<Cmd>wincmd l<CR>]])
+keymap.set('t', '<C-w>', [[<C-\><C-n><C-w>]])
