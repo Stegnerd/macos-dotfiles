@@ -44,7 +44,7 @@ return {
         "svelte",
         "tailwindcss",
         "taplo",
-        "tsserver",
+        "ts_ls",
         "vuels",
         "zls"
       },
